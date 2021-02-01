@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { update } from "../../containers/Dashboard/dashboardSlice";
 
@@ -11,6 +11,11 @@ const Edit = ({ currentEquipment, cancelBtn }) => {
     brand: false,
     boots: false,
   });
+
+  useEffect(() => {
+    setData(currentEquipment);
+    console.log("change");
+  }, [currentEquipment]);
 
   const validation = (fieldName, fieldValue) => {
     if (fieldValue.trim() === "") {

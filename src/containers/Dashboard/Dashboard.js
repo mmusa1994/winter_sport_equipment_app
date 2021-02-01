@@ -21,7 +21,6 @@ export const Dashboard = () => {
 
   const editEquipmentHandler = (item) => {
     setEditing(true);
-
     setCurrentEquipment({
       id: item.id,
       brand: item.brand,
