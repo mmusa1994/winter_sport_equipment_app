@@ -58,7 +58,7 @@ export const Dashboard = () => {
           )}
         </div>
       </div>
-      <div className={styles.content}>
+      <div className={styles.contentLink}>
         <Link className={styles.backButton} to="/">
           Back to Home
         </Link>
