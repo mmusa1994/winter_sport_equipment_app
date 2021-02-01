@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import { useSelector } from "react-redux";
 import { selectDashboard } from "./dashboardSlice";
 import { Link } from "react-router-dom";
@@ -59,9 +58,11 @@ export const Dashboard = () => {
           )}
         </div>
       </div>
-      <Link className={styles.backButton} to="/">
-        Back to Home
-      </Link>
+      <div className={styles.content}>
+        <Link className={styles.backButton} to="/">
+          Back to Home
+        </Link>
+      </div>
     </div>
   );
 };
