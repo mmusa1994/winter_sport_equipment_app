@@ -3,7 +3,12 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { remove } from "../../features/dashboard/dashboardSlice";
 
-const Table = ({ equipment, editEquipment }) => {
+const Table = ({ equipment, editEquipment, deleteEquipment }) => {
+  const deleteEquipmentHandler = (item) => () => {
+    deleteEquipment();
+    dispatch(remove(item));
+  };
+
   const dispatch = useDispatch();
   return (
     <table>
@@ -12,7 +17,7 @@ const Table = ({ equipment, editEquipment }) => {
           <th>Brand</th>
           <th>Boots</th>
           <th>Helmet</th>
-          <th>Ski-Googles</th>
+          <th>Ski-Goggles</th>
         </tr>
       </thead>
       <tbody>
@@ -21,8 +26,8 @@ const Table = ({ equipment, editEquipment }) => {
             <tr key={item.id}>
               <td>{item.brand}</td>
               <td>{item.boots}</td>
-              <td>{item.helmet}</td>
-              <td>{item.skiGoggles}</td>
+              <td>{item.helmet ? "Yes" : "No"}</td>
+              <td>{item.skiGoggles ? "Yes" : "No"}</td>
               <td>
                 <button
                   className="button edit"
@@ -34,7 +39,7 @@ const Table = ({ equipment, editEquipment }) => {
                 </button>
                 <button
                   className="button delete"
-                  onClick={() => dispatch(remove(item))}
+                  onClick={deleteEquipmentHandler(item)}
                 >
                   Delete
                 </button>

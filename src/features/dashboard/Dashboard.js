@@ -5,13 +5,13 @@ import { selectDashboard } from "./dashboardSlice";
 
 import styles from "./Dashboard.module.css";
 import EquipmentTable from "../../components/Table/Table";
-import Add from "../../components/Forms/Add/Add";
-import Edit from "../../components/Forms/Edit/Edit";
+import Add from "../../components/Forms/Add";
+import Edit from "../../components/Forms/Edit";
 
 export const Dashboard = () => {
   const equipment = useSelector(selectDashboard);
   const initialData = {
-    id: 0,
+    id: equipment.length + 1,
     brand: "",
     boots: "",
     helmet: false,
@@ -19,8 +19,6 @@ export const Dashboard = () => {
   };
   const [currentEquipment, setCurrentEquipment] = useState(initialData);
   const [editing, setEditing] = useState(false);
-
-  console.log(equipment);
 
   const editEquipmentHandler = (item) => {
     setEditing(true);
@@ -39,6 +37,7 @@ export const Dashboard = () => {
       <EquipmentTable
         equipment={equipment}
         editEquipment={editEquipmentHandler}
+        deleteEquipment={() => setEditing(false)}
       />
       {!editing && <Add />}
       {editing && <Edit currentEquipment={currentEquipment} />}

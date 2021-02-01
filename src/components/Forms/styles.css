@@ -1,0 +1,9 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.label-text {
+  font-size: large;
+  color: black;
+}

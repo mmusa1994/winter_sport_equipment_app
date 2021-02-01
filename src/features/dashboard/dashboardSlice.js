@@ -38,7 +38,9 @@ export const dashboardSlice = createSlice({
     update: (state, action) => {
       return {
         ...state,
-        equipment: [...state.equipment, action.payload],
+        equipment: state.equipment.map((item) =>
+          item.id === action.payload.id ? action.payload : item
+        ),
       };
     },
   },
