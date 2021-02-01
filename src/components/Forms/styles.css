@@ -11,9 +11,9 @@
 label {
   font-family: "Vast Shadow", cursive;
   font-size: x-large;
-  color: #ff33cc;
+  color: black;
   margin: 10px 0 0;
-  text-shadow: 1px 1px teal;
+  text-shadow: 1px 1px #fff;
 }
 label.checkbox {
   cursor: pointer;
@@ -21,7 +21,8 @@ label.checkbox {
 }
 
 input {
-  border: 1px solid #ccc;
+  border: 1px solid;
+  border-color: #ccc;
   outline: none;
   width: 90%;
   border-radius: 4px;
@@ -32,6 +33,10 @@ input {
 }
 input:hover {
   border-color: black;
+}
+
+input.err {
+  border-color: red;
 }
 
 input[type="checkbox"] {
@@ -75,8 +80,17 @@ input[type="submit"]:hover {
   background-color: red;
   color: white;
 }
+.error-text {
+  font-size: 12px;
+  color: red;
+  padding: 0;
+  margin: 0;
+}
 
 @media only screen and (max-width: 1398px) {
+  .form-container {
+    width: max-content;
+  }
   input {
     padding: 5px;
   }

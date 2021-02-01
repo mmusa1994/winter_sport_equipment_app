@@ -34,11 +34,11 @@ tfoot th {
 }
 
 tbody tr:nth-child(odd) {
-  background-color: #ff33cc;
+  background-color: #fff;
 }
 
 tbody tr:nth-child(even) {
-  background-color: #e495e4;
+  background-color: #ccc;
 }
 .table-button {
   font-family: "Vast Shadow", cursive;
@@ -53,12 +53,12 @@ tbody tr:nth-child(even) {
 }
 
 .table-button.edit {
-  background-color: #ede7a4;
-  transition: all 0.3s ease;
+  background-color: gold;
+  color: black;
 }
 .table-button.edit:hover {
-  background-color: #6d6e06;
-  color: white;
+  background-color: #ede7a4;
+  transition: all 0.3s ease;
 }
 .table-button.delete {
   background-color: red;
@@ -67,7 +67,6 @@ tbody tr:nth-child(even) {
 }
 .table-button.delete:hover {
   background-color: #e36d6d;
-  color: black;
 }
 
 @media only screen and (max-width: 1360px) {

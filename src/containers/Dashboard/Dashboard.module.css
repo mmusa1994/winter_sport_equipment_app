@@ -10,7 +10,7 @@
 
 .title {
   font-family: "Bungee Shade", cursive;
-  text-shadow: 1px 1px #ff33cc;
+  text-shadow: 1px 1px #000;
   color: white;
 }
 
@@ -43,13 +43,13 @@
 .dashboardButton {
   width: max-content;
   font-family: "Frijole", cursive;
+  color: white;
   font-size: 20px;
   cursor: pointer;
   border: none;
   outline: none;
   border-radius: 3px;
   padding: 10px;
-  color: white;
   background-color: teal;
   margin: 15px 0;
   transition: all 0.3s ease;
@@ -59,7 +59,7 @@
 }
 .backButton {
   width: max-content;
-  font-family: "Vast Shadow", cursive;
+  font-family: "Frijole", cursive;
   font-size: 20px;
   cursor: pointer;
   border: none;
@@ -77,6 +77,9 @@
 }
 
 @media only screen and (max-width: 1398px) {
+  input {
+    width: 90%;
+  }
   .content {
     flex-direction: column;
     justify-content: flex-start;
@@ -89,18 +92,7 @@
 
   .addEditBox {
     margin-top: 0;
-  }
-}
-
-@media only screen and (max-width: 760px),
-  (min-device-width: 768px) and (max-device-width: 1024px) {
-  input {
-    width: 90%;
-  }
-  .addEditBox {
-    width: max-content;
-  }
-  .tableBox {
+    align-items: center;
     width: max-content;
   }
 }

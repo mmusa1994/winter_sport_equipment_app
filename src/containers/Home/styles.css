@@ -11,13 +11,13 @@
 }
 .title {
   font-family: "Bungee Shade", cursive;
-  text-shadow: 1px 1px #ff33cc;
+  text-shadow: 1px 1px #000;
   color: white;
 }
 
 .link-btn {
   width: max-content;
-  font-family: "Vast Shadow", cursive;
+  font-family: "Frijole", cursive;
   font-size: 20px;
   cursor: pointer;
   border: none;

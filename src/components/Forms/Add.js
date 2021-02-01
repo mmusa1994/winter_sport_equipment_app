@@ -18,11 +18,29 @@ const Add = () => {
     helmet: false,
     skiGoggles: false,
   });
+  const [validate, setValidate] = useState({
+    brand: false,
+    boots: false,
+  });
   const { brand, boots, helmet, skiGoggles } = data;
+
+  const validation = (fieldName, fieldValue) => {
+    if (fieldValue.trim() === "") {
+      setValidate({ ...validate, [fieldName]: true });
+    } else if (/[^a-zA-Z -]/.test(fieldValue)) {
+      setValidate({ ...validate, [fieldName]: true });
+    } else {
+      setValidate({ ...validate, [fieldName]: false });
+    }
+  };
+
   const onChange = (e) => {
     const target = e.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
+    if (value !== target.checked) {
+      validation([name], value);
+    }
     setData({ ...data, [name]: value });
   };
 
@@ -32,7 +50,26 @@ const Add = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    dispatch(add(data));
+    if (!validate.boots && !validate.boots) {
+      if (brand !== "" && boots !== "") {
+        dispatch(add(data));
+        setData({
+          id: equipment.length + 1,
+          brand: "",
+          boots: "",
+          helmet: false,
+          skiGoggles: false,
+        });
+      } else {
+        if (brand === "" && boots === "") {
+          setValidate({ ...validate, brand: true, boots: true });
+        } else if (brand !== "" && boots === "") {
+          setValidate({ ...validate, brand: false, boots: true });
+        } else {
+          setValidate({ ...validate, brand: true, boots: false });
+        }
+      }
+    }
   };
 
   return (
@@ -41,24 +78,26 @@ const Add = () => {
         Brand
       </label>
       <input
-        className="text-input"
+        className={validate.brand ? "text-input err" : "text-input"}
         type="text"
         id="brand"
         name="brand"
         value={brand}
         onChange={(e) => onChange(e)}
       />
+      <p className="error-text"> {validate.brand && "Invalid input!"}</p>
       <label className="label-text" htmlFor="boots">
         Boots
       </label>
       <input
-        className="text-input"
+        className={validate.boots ? "text-input err" : "text-input"}
         type="text"
         id="boots"
         name="boots"
         value={boots}
         onChange={(e) => onChange(e)}
       />
+      <p className="error-text">{validate.boots && "Invalid input!"}</p>
       <label className="checkbox" htmlFor="helmet">
         Helmet
         <input
