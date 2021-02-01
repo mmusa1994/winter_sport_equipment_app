@@ -10,7 +10,6 @@ import "./styles.css";
 const Add = () => {
   const equipment = useSelector(selectDashboard);
   const dispatch = useDispatch();
-
   const [data, setData] = useState({
     id: equipment.length + 1,
     brand: "",
@@ -19,12 +18,15 @@ const Add = () => {
     skiGoggles: false,
   });
   const { brand, boots, helmet, skiGoggles } = data;
-  console.log(equipment);
   const onChange = (e) => {
     const target = e.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
-    setData({ ...data, id: equipment.length + 1, [name]: value });
+    setData({ ...data, [name]: value });
+  };
+
+  const updateState = () => {
+    setData({ ...data, id: equipment.length + 1 });
   };
 
   const onSubmit = (e) => {
@@ -78,7 +80,7 @@ const Add = () => {
           onChange={(e) => onChange(e)}
         />
       </label>
-      <input type="submit" />
+      <input onClick={updateState} type="submit" />
     </form>
   );
 };
