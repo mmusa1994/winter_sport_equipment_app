@@ -10,9 +10,10 @@
 }
 label {
   font-family: "Vast Shadow", cursive;
+  font-size: x-large;
   color: #ff33cc;
   margin: 10px 0 0;
-  text-shadow: 1px 1px #fff;
+  text-shadow: 1px 1px teal;
 }
 label.checkbox {
   cursor: pointer;
@@ -73,4 +74,11 @@ input[type="submit"]:hover {
 .cancel-btn:hover {
   background-color: red;
   color: white;
+}
+
+@media only screen and (max-width: 760px),
+  (min-device-width: 768px) and (max-device-width: 1024px) {
+  input {
+    width: "auto";
+  }
 }

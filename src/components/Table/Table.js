@@ -51,7 +51,7 @@ const Table = ({ equipment, editEquipment, deleteEquipment }) => {
           ))
         ) : (
           <tr>
-            <td colSpan={3}>No Equipment</td>
+            <td colSpan={5}>No Equipment</td>
           </tr>
         )}
       </tbody>

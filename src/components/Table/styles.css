@@ -1,6 +1,7 @@
 table {
   border-collapse: collapse;
   font-family: "Frijole", cursive;
+  width: "auto";
 }
 
 th,
@@ -16,10 +17,11 @@ th {
 }
 
 thead,
-tfoot th,
-tfoot td,
-tbody {
+tfoot {
   background: linear-gradient(to bottom, #ffffff, #d5ebe8);
+  border: 2px solid teal;
+}
+tbody {
   border: 2px solid teal;
 }
 
@@ -66,4 +68,30 @@ tbody tr:nth-child(even) {
 .table-button.delete:hover {
   background-color: #e36d6d;
   color: black;
+}
+
+@media only screen and (max-width: 1360px) {
+  table,
+  tbody,
+  th,
+  td,
+  tr {
+    border: none;
+    display: block;
+  }
+
+  thead,
+  tfoot {
+    display: none;
+  }
+  table {
+    width: max-content;
+    border: 1px solid;
+    border-color: #eee;
+  }
+
+  td {
+    border: none;
+    border-bottom: 1px solid #eee;
+  }
 }
