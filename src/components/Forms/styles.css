@@ -2,8 +2,75 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  border-radius: 4px;
+  margin: auto;
+  width: 100%;
 }
-.label-text {
+label {
+  font-family: "Vast Shadow", cursive;
+  color: #ff33cc;
+  margin: 10px 0 0;
+  text-shadow: 1px 1px #fff;
+}
+label.checkbox {
+  cursor: pointer;
+  font-size: 22px;
+}
+
+input {
+  border: 1px solid #ccc;
+  outline: none;
+  width: 90%;
+  border-radius: 4px;
+  padding: 12px;
   font-size: large;
-  color: black;
+  font-family: "Frijole", cursive;
+  transition: all 0.3s ease;
+}
+input:hover {
+  border-color: black;
+}
+
+input[type="checkbox"] {
+  cursor: pointer;
+  width: auto;
+}
+
+input[type="submit"] {
+  font-family: "Vast Shadow", cursive;
+  font-size: small;
+  padding: 10px;
+  width: 85px;
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+  outline: none;
+  background-color: lightgreen;
+  margin-top: 15px;
+}
+input[type="submit"]:hover {
+  background-color: green;
+  color: white;
+}
+
+.cancel-btn {
+  font-family: "Vast Shadow", cursive;
+  font-size: small;
+  padding: 10px;
+  width: 85px;
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+  outline: none;
+  background-color: lightcoral;
+  margin-top: 15px;
+  margin-left: 10px;
+  display: inline;
+}
+
+.cancel-btn:hover {
+  background-color: red;
+  color: white;
 }

@@ -1,7 +1,9 @@
 import React from "react";
 
 import { useDispatch } from "react-redux";
-import { remove } from "../../features/dashboard/dashboardSlice";
+import { remove } from "../../containers/Dashboard/dashboardSlice";
+
+import "./styles.css";
 
 const Table = ({ equipment, editEquipment, deleteEquipment }) => {
   const deleteEquipmentHandler = (item) => () => {
@@ -18,19 +20,20 @@ const Table = ({ equipment, editEquipment, deleteEquipment }) => {
           <th>Boots</th>
           <th>Helmet</th>
           <th>Ski-Goggles</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
         {equipment.length > 0 ? (
-          equipment.map((item) => (
+          equipment.map((item, i) => (
             <tr key={item.id}>
               <td>{item.brand}</td>
               <td>{item.boots}</td>
-              <td>{item.helmet ? "Yes" : "No"}</td>
-              <td>{item.skiGoggles ? "Yes" : "No"}</td>
+              <td>{item.helmet ? "✔︎" : "-"}</td>
+              <td>{item.skiGoggles ? "✔︎" : "-"}</td>
               <td>
                 <button
-                  className="button edit"
+                  className="table-button edit"
                   onClick={() => {
                     editEquipment(item);
                   }}
@@ -38,7 +41,7 @@ const Table = ({ equipment, editEquipment, deleteEquipment }) => {
                   Edit
                 </button>
                 <button
-                  className="button delete"
+                  className="table-button delete"
                   onClick={deleteEquipmentHandler(item)}
                 >
                   Delete
@@ -52,6 +55,11 @@ const Table = ({ equipment, editEquipment, deleteEquipment }) => {
           </tr>
         )}
       </tbody>
+      <tfoot>
+        <tr>
+          <th colSpan={5}>Copyright MM®</th>
+        </tr>
+      </tfoot>
     </table>
   );
 };

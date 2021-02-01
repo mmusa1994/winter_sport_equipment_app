@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { add, selectDashboard } from "../../features/dashboard/dashboardSlice";
+import {
+  add,
+  selectDashboard,
+} from "../../containers/Dashboard/dashboardSlice";
 
 import "./styles.css";
 
@@ -9,19 +12,21 @@ const Add = () => {
   const dispatch = useDispatch();
 
   const [data, setData] = useState({
+    id: equipment.length + 1,
     brand: "",
     boots: "",
     helmet: false,
     skiGoggles: false,
   });
   const { brand, boots, helmet, skiGoggles } = data;
-
+  console.log(equipment);
   const onChange = (e) => {
     const target = e.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
-    setData({ id: equipment.length + 1, ...data, [name]: value });
+    setData({ ...data, id: equipment.length + 1, [name]: value });
   };
+
   const onSubmit = (e) => {
     e.preventDefault();
     dispatch(add(data));
@@ -29,7 +34,6 @@ const Add = () => {
 
   return (
     <form className="form-container" onSubmit={onSubmit}>
-      <div>Add Equipment</div>
       <label className="label-text" htmlFor="brand">
         Brand
       </label>
@@ -52,7 +56,7 @@ const Add = () => {
         value={boots}
         onChange={(e) => onChange(e)}
       />
-      <label className="label-text" htmlFor="helmet">
+      <label className="checkbox" htmlFor="helmet">
         Helmet
         <input
           className="checkbox"
@@ -63,7 +67,7 @@ const Add = () => {
           onChange={(e) => onChange(e)}
         />
       </label>
-      <label className="label-text" htmlFor="skiGoggles">
+      <label className="checkbox" htmlFor="skiGoggles">
         Ski-Goggles
         <input
           className="checkbox"
@@ -74,7 +78,7 @@ const Add = () => {
           onChange={(e) => onChange(e)}
         />
       </label>
-      <input type="submit" className="submit-btn" />
+      <input type="submit" />
     </form>
   );
 };

@@ -1,0 +1,81 @@
+.wrapper {
+  width: 100%;
+  min-height: 100vh;
+  margin: auto;
+  background: url("../../assets/border.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.title {
+  font-family: "Bungee Shade", cursive;
+  text-shadow: 1px 1px #ff33cc;
+  color: white;
+}
+
+.content {
+  width: 100%;
+  padding: 100px 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+
+.tableBox {
+  width: 60%;
+}
+.addEditBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 30%;
+  margin-top: -70px;
+}
+
+.dashboardButton {
+  width: max-content;
+  font-family: "Vast Shadow", cursive;
+  font-size: 20px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  border-radius: 3px;
+  padding: 10px;
+  color: white;
+  background-color: teal;
+  margin: 15px 0;
+  transition: all 0.3s ease;
+}
+.dashboardButton:hover {
+  background-color: #80b0a2;
+}
+.backButton {
+  width: max-content;
+  font-family: "Vast Shadow", cursive;
+  font-size: 20px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  border-radius: 3px;
+  padding: 10px;
+  color: black;
+  background-color: lightgoldenrodyellow;
+  margin: 15px 0;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+.backButton:hover {
+  background-color: gold;
+  color: white;
+}
+
+@media only screen and (max-width: 1398px) {
+  .content {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .addEditBox {
+    margin-top: 0;
+  }
+}

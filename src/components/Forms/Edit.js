@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { update } from "../../features/dashboard/dashboardSlice";
+import { update } from "../../containers/Dashboard/dashboardSlice";
 
 import "./styles.css";
 
-const Edit = ({ currentEquipment }) => {
+const Edit = ({ currentEquipment, cancelBtn }) => {
   const dispatch = useDispatch();
   const [data, setData] = useState(currentEquipment);
 
@@ -43,7 +43,7 @@ const Edit = ({ currentEquipment }) => {
         value={data.boots}
         onChange={(e) => onChange(e)}
       />
-      <label className="label-text" htmlFor="helmet">
+      <label className="checkbox" htmlFor="helmet">
         Helmet
         <input
           className="input-form"
@@ -54,7 +54,7 @@ const Edit = ({ currentEquipment }) => {
           onChange={(e) => onChange(e)}
         />
       </label>
-      <label className="label-text" htmlFor="skiGoggles">
+      <label className="checkbox" htmlFor="skiGoggles">
         Ski-Goggles
         <input
           className="input-form"
@@ -65,8 +65,12 @@ const Edit = ({ currentEquipment }) => {
           onChange={(e) => onChange(e)}
         />
       </label>
-
-      <input type="submit" className="submit-btn" />
+      <div>
+        <input type="submit" />
+        <button className="cancel-btn" onClick={cancelBtn}>
+          Cancel
+        </button>
+      </div>
     </form>
   );
 };

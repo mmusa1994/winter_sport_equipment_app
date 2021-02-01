@@ -1,8 +1,7 @@
 import React from "react";
-import logo from "./logo.svg";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { Counter } from "./features/counter/Counter";
-import { Dashboard } from "./features/dashboard/Dashboard";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Dashboard } from "./containers/Dashboard/Dashboard";
+import { Home } from "./containers/Home/Home";
 import "./App.css";
 
 function App() {
@@ -15,7 +14,7 @@ function App() {
               <Dashboard />
             </Route>
             <Route path="/">
-              <Counter />
+              <Home />
             </Route>
           </Switch>
         </header>
