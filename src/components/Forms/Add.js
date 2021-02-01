@@ -10,6 +10,7 @@ import "./styles.css";
 const Add = () => {
   const equipment = useSelector(selectDashboard);
   const dispatch = useDispatch();
+
   const [data, setData] = useState({
     id: equipment.length + 1,
     brand: "",
